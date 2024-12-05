@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 00:14:19 by plashkar          #+#    #+#             */
-/*   Updated: 2024/08/04 03:57:49 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/05 21:10:20 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void ScavTrap::showDetailedStats() const
 {
 	ClapTrap::showDetailedStats();
 	std::cout <<	"┌────────────────────────────────────────────┐\n"
-				<<	"| Gurding mode: " << _guardingMode << std::setw(30) << "|\n"
+				<<	"| Guarding mode: " << _guardingMode << std::setw(29) << "|\n"
 				<<	"└────────────────────────────────────────────┘" << std::endl;
 
 }
