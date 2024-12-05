@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 15:39:24 by plashkar          #+#    #+#             */
-/*   Updated: 2024/08/03 19:02:47 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/05 12:44:41 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int main(void)
 		if (input == "STATS")
 			clappy.showDetailedStats();
 		if (input == "HURT")
-			clappy.takeDamage(getInputInt("Please enter the ammount of damage: "));
+			clappy.takeDamage(getInputInt("Please enter the amount of damage: "));
 		if (input == "REPAIR")
-			clappy.beRepaired(getInputInt("Please enter the ammount of damage you want to repair: "));
+			clappy.beRepaired(getInputInt("Please enter the amount of damage you want to repair: "));
 		if (input == "EXIT") {
 			std::cout << YELLOW << "I'll be back..." << RESET << std::endl;
 			return(0);

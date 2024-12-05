@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 13:47:36 by plashkar          #+#    #+#             */
-/*   Updated: 2024/08/04 03:37:14 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/05 19:28:56 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,16 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& otherClapTrap)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap Deconstructor for " << _name << " was called" << std::endl;
+	std::cout << "ClapTrap destructor for " << _name << " was called" << std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target)
 {
+	if (_hitPoints <= 0){
+		std::cout << RED << "ClapTrap is DEAD!!! Much like you will soon be... 😈😈😈" << RESET << std::endl;
+		this->showDetailedStats();
+		return ;
+	}
 	if (_energyPoints <= 0) {
 		std::cout << "ClapTrap is too tired and has no energy points" << std::endl;
 		this->showDetailedStats();
@@ -55,18 +60,25 @@ void	ClapTrap::attack(const std::string& target)
 	}
 	_energyPoints--;
 	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing "
-				<< _attackDamage << " ponits of damage!" << std::endl;
+				<< _attackDamage << " points of damage!" << std::endl;
 	this->showDetailedStats();
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+	if (_hitPoints <= 0)
+	{
+		std::cout << "Its is very dishonorable to try to kill something that's dead already...\n"
+		<< "Shame on you, and your mom. ClapTrap " << _name << " won't be forgotten." << std::endl;
+		return ;
+	}
 	if (_hitPoints <= amount)
 	{
 		std::cout << "ClapTrap " << _name << " is dead!" << std::endl
 		 			<< "He was general-purpose robot made by Hyperion "
 					<< "that was programmed with a particularly happy and cowardly personality.\n"
-					<< "He will be remebered dearly by his wheel who he left a widow.\n" << std::endl;
+					<< "He will be remembered dearly by his wheel who he left a widow." << std::endl;
+		_hitPoints = 0;
 		return ;
 	}
 	_hitPoints -= amount;
@@ -76,6 +88,11 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+	if (_hitPoints <= 0){
+		std::cout << RED << "ClapTrap is DEAD!!! Much like you will soon be... 😈😈😈" << RESET << std::endl;
+		this->showDetailedStats();
+		return ;
+	}
 	if (_energyPoints <= amount) {
 		std::cout << "ClapTrap is too tired and has no energy points" << std::endl;
 		this->showDetailedStats();
@@ -88,12 +105,15 @@ void	ClapTrap::beRepaired(unsigned int amount)
 
 void	ClapTrap::showDetailedStats() const
 {
+	if (_hitPoints <= 0)
+		std::cout <<"┌──────────────────෴⚘⎧ᴿᴵᴾ⎫⚘෴─────────────────┐" << std::endl;
 	std::cout <<	"┌────────────────────────────────────────────┐\n"
-				<<	"| Name: " << std::setw(36)<< printLen(_name) << " |" << std::endl
+				<<	"| Name: " << std::setw(34)<< printLen(_name) << "   |" << std::endl
 				<<	"| [ Hit points: " << std::setw(3) << _hitPoints << " ] [ Energy points: "
 				<< std::setw(3) << _energyPoints << " ] |\n"
 				<<	"└────────────────────────────────────────────┘" << std::endl;
 }
+
 
 std::string	printLen(std::string str)
 {

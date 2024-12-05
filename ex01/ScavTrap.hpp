@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 00:13:58 by plashkar          #+#    #+#             */
-/*   Updated: 2024/08/04 19:40:52 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/05 19:15:19 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ public:
 	ScavTrap& operator=(const ScavTrap& otherScaveTrap);
 	virtual ~ScavTrap();
 
-	void guardGate();
-	bool checkGuardMode();
-	void showDetailedStats() const ; // Override ClapTrap::showDetailedStats
+	void	attack(const std::string& target);
+	void	guardGate();
+	bool	checkGuardMode();
+	void	showDetailedStats() const ; // Override ClapTrap::showDetailedStats
 };
 
 #endif

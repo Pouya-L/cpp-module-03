@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 17:01:28 by plashkar          #+#    #+#             */
-/*   Updated: 2024/08/04 19:40:45 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/05 18:51:46 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ public:
 	ClapTrap& operator=(const ClapTrap& otherClapTrap);
 	virtual	~ClapTrap();
 
-	void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-	virtual void showDetailedStats() const; // Make it virtual for overriding
+	virtual void	attack(const std::string& target);
+	virtual void	showDetailedStats() const; // Make it virtual for overriding
 };
 
 void			welcome_msg(void);

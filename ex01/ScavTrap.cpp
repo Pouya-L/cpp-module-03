@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 00:14:19 by plashkar          #+#    #+#             */
-/*   Updated: 2024/08/04 03:58:08 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/05 19:13:51 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,24 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& otherScavTrap)
 	ClapTrap::operator=(otherScavTrap);
 	this->_guardingMode = otherScavTrap._guardingMode;
 	return *this;
+}
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (_hitPoints <= 0){
+		std::cout << RED << "ScavTrap is DEAD!!! Much like you will soon be... 😈😈😈" << RESET << std::endl;
+		this->showDetailedStats();
+		return ;
+	}
+	if (_energyPoints <= 0) {
+		std::cout << "ScavTrap is too tired and has no energy points" << std::endl;
+		this->showDetailedStats();
+		return ;
+	}
+	_energyPoints--;
+	std::cout << "ScavTrap " << _name << " attacks " << target << ", causing "
+				<< _attackDamage << " points of damage!" << std::endl;
+	this->showDetailedStats();
 }
 
 ScavTrap::~ScavTrap()

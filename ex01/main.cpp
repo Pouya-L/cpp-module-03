@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 15:39:24 by plashkar          #+#    #+#             */
-/*   Updated: 2024/08/04 03:31:42 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/05 19:21:29 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 // 	}
 // }
 
-int	main()
+/* int	main()
 {
 	ClapTrap clappy1("first one");
 	ClapTrap clappy2("second one");
@@ -60,4 +60,10 @@ int	main()
 	Scavvy3.showDetailedStats();
 	Scavvy2.takeDamage(6);
 	return 0;
+} */
+
+int main(){
+	ScavTrap scavy("SCAVVV");
+	scavy.attack("MAGS");
+	scavy.guardGate();
 }
