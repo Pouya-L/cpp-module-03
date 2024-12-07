@@ -6,7 +6,7 @@
 /*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 13:47:36 by plashkar          #+#    #+#             */
-/*   Updated: 2024/12/05 21:10:58 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:00:15 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,16 +124,18 @@ std::string	printLen(std::string str)
 
 //functions for the main.cpp
 
-unsigned int	getInputInt(std::string msg)
+int	getPositiveInputInt(std::string msg)
 {
-	bool				valid = false;
-	unsigned int		input = -1;
+	bool	valid = false;
+	int		input = -1;
 
 	do {
-		std::cout << msg << std::flush;
-		if (!(std::cin >> input))
+		std::cout << msg << std::endl;
+		std::cout << GREEN <<"> " << RESET;
+		if (!(std::cin >> input) || input < 0)
 		{
 			if (std::cin.eof()) {
+				std::cout << RED << "EOF detected. Exiting the program." << RESET << std::endl;
 				std::cin.clear();
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				return (-1);
@@ -141,10 +143,14 @@ unsigned int	getInputInt(std::string msg)
 			else {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Invalid input; please try again." << std::endl;
+			std::cout << "Invalid input; please try again. It has to be a valid number." << std::endl;
 			}
 		}
-		valid = true;
+		else
+		{
+			valid = true;
+			std::cout << input << std::endl;
+		}
 	} while (!valid);
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	return (input);
@@ -196,7 +202,7 @@ void welcome_msg(void)
 					"    ░░░░░░▒░           ░░░░░░▒▓▓▓▓▓▓▓░░░░░░░░▓▓▓▓▓▓▓▒▒       +----------------+      \n"
 					"      ░░░░░░░▒         ░░░░░░▒▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓░░       |   Welcome to   |      \n"
 					"        ░░░░░▒░        ░░░░░░░▓▒▓▓░▒▒▒▒░▒░░▒░▒▒▓▓▓▓▒▒        |                |      \n"
-					"         ▒░░░░▒░▒░      ░░░░░░▓▒▒░░░░░▒▒▒░▒░░░░▓▓▓▓▒░        |  ClapTrap 3.0  |      \n"
+					"         ▒░░░░▒░▒░      ░░░░░░▓▒▒░░░░░▒▒▒░▒░░░░▓▓▓▓▒░        |  ClapTrap 4.0  |      \n"
 					"            ░▒▒░░░░░    ░░░░░░▒▒░░░░░░░░░░░░░░░▒░░░▒         +----------------+      \n"
 					"            ░░░░░░▒░▒░░░░░░░░░▒░░░░░░░░░░░░░░░░░▒▒░                                  \n"
 					"               ░░  ░░░  ░░░░░░░░░░░░░░░▒▒▒░░░░░░▒░▒                                  \n"

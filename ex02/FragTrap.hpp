@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 03:38:56 by plashkar          #+#    #+#             */
-/*   Updated: 2024/08/04 19:41:03 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 16:36:16 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ public:
 	FragTrap& operator=(FragTrap& otherFragTrap);
 	virtual	~FragTrap();
 
-	void highFivesGuys(void);
+	void	attack(const std::string& target);
+	void	highFivesGuys(void);
 };
 
 #endif

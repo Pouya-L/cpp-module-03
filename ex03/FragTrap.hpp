@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 03:38:56 by plashkar          #+#    #+#             */
-/*   Updated: 2024/08/04 19:43:46 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 16:46:04 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
  * even if it is inherited multiple times.
  */
 class	FragTrap : virtual public ClapTrap {
-private:
-
+protected:
+		int _fragAttackDamage;
 public:
 	FragTrap();
 	FragTrap(std::string name);
@@ -30,7 +30,8 @@ public:
 	FragTrap& operator=(const FragTrap& otherFragTrap);
 	virtual	~FragTrap();
 
-	void highFivesGuys(void);
+	void	attack(const std::string& target);
+	void	highFivesGuys(void);
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 03:43:31 by plashkar          #+#    #+#             */
-/*   Updated: 2024/08/04 17:54:39 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 16:37:28 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,30 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap Deconstructor for " << _name << " was called" << std::endl;
 }
 
+void	FragTrap::attack(const std::string& target)
+{
+	if (_hitPoints <= 0){
+		std::cout << RED << "FragTrap is DEAD!!! Much like you will soon be... 😈😈😈" << RESET << std::endl;
+		this->showDetailedStats();
+		return ;
+	}
+	if (_energyPoints <= 0) {
+		std::cout << "FragTrap is too tired and has no energy points" << std::endl;
+		this->showDetailedStats();
+		return ;
+	}
+	_energyPoints--;
+	std::cout << "FragTrap " << _name << " attacks " << target << ", causing "
+				<< _attackDamage << " points of damage!" << std::endl;
+	this->showDetailedStats();
+}
+
 void FragTrap::highFivesGuys(void)
 {
+	if (_hitPoints <= 0){
+		std::cout << RED << "FragTrap is DEAD!!! Much like you will soon be... 😈😈😈" << RESET << std::endl;
+		this->showDetailedStats();
+		return ;
+	}
 	std::cout << "FragTrap " << _name << " requested a high five from everyone. No one highfived it back" << std::endl;
 }

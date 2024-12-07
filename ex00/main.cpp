@@ -6,7 +6,7 @@
 /*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 15:39:24 by plashkar          #+#    #+#             */
-/*   Updated: 2024/12/05 12:44:41 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 16:26:48 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(void)
 	welcome_msg();
 	ClapTrap clappy("CL4P-TP");
 	std::string input = "";
+	int 		intInput = -1;
 	while (true)
 	{
 		std::cout << GREEN <<"> " << RESET;
@@ -33,9 +34,19 @@ int main(void)
 		if (input == "STATS")
 			clappy.showDetailedStats();
 		if (input == "HURT")
-			clappy.takeDamage(getInputInt("Please enter the amount of damage: "));
+		{
+			intInput = getPositiveInputInt("Please enter the amount of damage: ");
+			if (intInput == -1)
+				break ;
+			clappy.takeDamage(static_cast<unsigned int>(intInput));
+		}
 		if (input == "REPAIR")
-			clappy.beRepaired(getInputInt("Please enter the amount of damage you want to repair: "));
+		{
+			intInput = getPositiveInputInt("Please enter the amount of damage: ");
+			if (intInput == -1)
+				break ;
+			clappy.beRepaired(getPositiveInputInt("Please enter the amount of damage you want to repair: "));
+		}
 		if (input == "EXIT") {
 			std::cout << YELLOW << "I'll be back..." << RESET << std::endl;
 			return(0);

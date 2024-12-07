@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 17:01:28 by plashkar          #+#    #+#             */
-/*   Updated: 2024/08/04 19:45:27 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 16:32:57 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ public:
 
 void			welcome_msg(void);
 std::string		printLen(std::string str);
-unsigned int	getInputInt(std::string msg);
+int				getPositiveInputInt(std::string msg);
 int				getInput(std::string &input);
 
 #endif

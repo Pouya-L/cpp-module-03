@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plashkar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 00:14:19 by plashkar          #+#    #+#             */
-/*   Updated: 2024/08/04 03:57:49 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 16:34:35 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,24 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap Deconstructor for " << _name << " was called" << std::endl;
 }
 
+void	ScavTrap::attack(const std::string& target)
+{
+	if (_hitPoints <= 0){
+		std::cout << RED << "ScavTrap is DEAD!!! Much like you will soon be... 😈😈😈" << RESET << std::endl;
+		this->showDetailedStats();
+		return ;
+	}
+	if (_energyPoints <= 0) {
+		std::cout << "ScavTrap is too tired and has no energy points" << std::endl;
+		this->showDetailedStats();
+		return ;
+	}
+	_energyPoints--;
+	std::cout << "ScavTrap " << _name << " attacks " << target << ", causing "
+				<< _attackDamage << " points of damage!" << std::endl;
+	this->showDetailedStats();
+}
+
 void	ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode." << std::endl;
@@ -67,7 +85,7 @@ void ScavTrap::showDetailedStats() const
 {
 	ClapTrap::showDetailedStats();
 	std::cout <<	"┌────────────────────────────────────────────┐\n"
-				<<	"| Gurding mode: " << _guardingMode << std::setw(30) << "|\n"
+				<<	"| Guarding mode: " << _guardingMode << std::setw(29) << "|\n"
 				<<	"└────────────────────────────────────────────┘" << std::endl;
 
 }
