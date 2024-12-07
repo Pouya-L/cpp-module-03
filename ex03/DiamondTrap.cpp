@@ -6,13 +6,13 @@
 /*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 18:28:20 by plashkar          #+#    #+#             */
-/*   Updated: 2024/12/07 16:56:49 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:43:53 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap(), _name("Unknown DiamondTrap")
+DiamondTrap::DiamondTrap() : ClapTrap("Unknown_DT_clap_name"), FragTrap(), ScavTrap(), _name("Unknown_DT")
 {
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
@@ -50,6 +50,18 @@ DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& otherDiamondTrap)
 DiamondTrap::~DiamondTrap()
 {
 	std::cout << "DiamondTrap Deconstructor for " << _name << " was called" << std::endl;
+}
+
+void DiamondTrap::showDetailedStats() const
+{
+	if (_hitPoints <= 0)
+		std::cout <<"┌──────────────────෴⚘⎧ᴿᴵᴾ⎫⚘෴─────────────────┐" << std::endl;
+	std::cout <<	"┌────────────────────────────────────────────┐\n"
+				<<	"| Name: " << std::setw(34)<< printLen(_name) << "   |" << std::endl
+				<<	"| ClapTrap Name: " << std::setw(25)<< printLen(ClapTrap::_name) << "   |" << std::endl
+				<<	"| [ Hit points: " << std::setw(3) << _hitPoints << " ] [ Energy points: "
+				<< std::setw(3) << _energyPoints << " ] |\n"
+				<<	"└────────────────────────────────────────────┘" << std::endl;
 }
 
 void	DiamondTrap::whoAmI()

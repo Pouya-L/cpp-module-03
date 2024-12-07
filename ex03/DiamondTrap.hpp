@@ -6,7 +6,7 @@
 /*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 18:25:15 by plashkar          #+#    #+#             */
-/*   Updated: 2024/12/07 16:55:46 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:38:21 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ class	DiamondTrap : public FragTrap, public ScavTrap
 
 		using	ScavTrap::attack; // Use attack method from ScavTrap
 		void	whoAmI();
+		void	showDetailedStats() const ;
 };

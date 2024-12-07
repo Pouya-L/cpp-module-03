@@ -6,7 +6,7 @@
 /*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 13:47:36 by plashkar          #+#    #+#             */
-/*   Updated: 2024/12/07 16:25:05 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:13:58 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,10 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		this->showDetailedStats();
 		return ;
 	}
-	if (_energyPoints <= amount) {
+	if (_energyPoints <= 0) {
 		std::cout << "ClapTrap is too tired and has no energy points" << std::endl;
 		this->showDetailedStats();
+		return ;
 	}
 	 _hitPoints += amount;
 	 _energyPoints--;

@@ -6,11 +6,11 @@
 #    By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/29 19:22:04 by plashkar          #+#    #+#              #
-#    Updated: 2024/12/05 15:16:05 by plashkar         ###   ########.fr        #
+#    Updated: 2024/12/07 17:31:31 by plashkar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex02
+NAME = ex03
 
 CC = c++
 
@@ -33,7 +33,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@echo "Compiling $@"
 	@$(CC) $(STANDARD_FLAGS) $(OBJ) -o $(NAME) > /dev/null
-	@echo "ex02 has been created."
+	@echo "ex03 has been created."
 
 clean:
 	@rm -f $(OBJ)
@@ -47,6 +47,6 @@ re: fclean all
 
 v: all clean
 	@echo
-	@./ex02
+	@./ex03
 
 .PHONY: fclean clean all re

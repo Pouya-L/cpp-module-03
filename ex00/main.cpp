@@ -6,7 +6,7 @@
 /*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 15:39:24 by plashkar          #+#    #+#             */
-/*   Updated: 2024/12/07 16:26:48 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:05:31 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int main(void)
 		}
 		if (input == "REPAIR")
 		{
-			intInput = getPositiveInputInt("Please enter the amount of damage: ");
+			intInput = getPositiveInputInt("Please enter the amount of damage you want to repair: ");
 			if (intInput == -1)
 				break ;
-			clappy.beRepaired(getPositiveInputInt("Please enter the amount of damage you want to repair: "));
+			clappy.beRepaired(static_cast<unsigned int>(intInput));
 		}
 		if (input == "EXIT") {
 			std::cout << YELLOW << "I'll be back..." << RESET << std::endl;

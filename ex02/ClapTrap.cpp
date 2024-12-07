@@ -6,7 +6,7 @@
 /*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 13:47:36 by plashkar          #+#    #+#             */
-/*   Updated: 2024/12/07 17:00:00 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:27:17 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,10 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		this->showDetailedStats();
 		return ;
 	}
-	if (_energyPoints <= amount) {
+	if (_energyPoints <= 0) {
 		std::cout << "ClapTrap is too tired and has no energy points" << std::endl;
 		this->showDetailedStats();
+		return ;
 	}
 	 _hitPoints += amount;
 	 _energyPoints--;
@@ -221,10 +222,11 @@ void welcome_msg(void)
 	std::cout << CYAN << "+------------------------------------+\n"
 						<< "| USAGE:                             |\n"
 						<< "| type oone of these commands:       |\n"
-						<< "| Attack: To attack the enemy        |\n"
+						<< "| ATTACK: To attack the enemy        |\n"
 						<< "| STATS: To show your current status |\n"
 						<< "| HURT: To take damage               |\n"
 						<< "| REPAIR: to repair some damage      |\n"
+						<< "| HIGHFIVE: ask for a high five      |\n"
 						<< "| EXIT: to exit the program          |\n"
 						<< "+------------------------------------+\n"
 						<< RESET << std::endl;

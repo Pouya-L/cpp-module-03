@@ -6,17 +6,16 @@
 /*   By: plashkar <plashkar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 15:39:24 by plashkar          #+#    #+#             */
-/*   Updated: 2024/12/07 16:28:46 by plashkar         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:25:16 by plashkar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-
-/* int main(void)
+int main(void)
 {
 
 	welcome_msg();
-	ClapTrap clappy("CL4P-TP");
+	ScavTrap scavvy("SC4V-TP");
 	std::string input = "";
 	int 		intInput = -1;
 	while (true)
@@ -30,33 +29,35 @@
 			break ;
 		}
 		if (input == "ATTACK")
-			clappy.attack("Enemy");
+			scavvy.attack("Enemy");
 		if (input == "STATS")
-			clappy.showDetailedStats();
+			scavvy.showDetailedStats();
 		if (input == "HURT")
 		{
 			intInput = getPositiveInputInt("Please enter the amount of damage: ");
 			if (intInput == -1)
 				break ;
-			clappy.takeDamage(static_cast<unsigned int>(intInput));
+			scavvy.takeDamage(static_cast<unsigned int>(intInput));
 		}
 		if (input == "REPAIR")
 		{
-			intInput = getPositiveInputInt("Please enter the amount of damage: ");
+			intInput = getPositiveInputInt("Please enter the amount of damage you want to repair: ");
 			if (intInput == -1)
 				break ;
-			clappy.beRepaired(getPositiveInputInt("Please enter the amount of damage you want to repair: "));
+			scavvy.beRepaired(static_cast<unsigned int>(intInput));
 		}
+		if (input == "GUARD")
+			scavvy.guardGate();
 		if (input == "EXIT") {
 			std::cout << YELLOW << "I'll be back..." << RESET << std::endl;
 			return(0);
 		}
 	}
-} */
-
-
-int main(){
-	ScavTrap scavy("SCAVVV");
-	scavy.attack("MAGS");
-	scavy.guardGate();
 }
+
+
+// int main(){
+// 	ScavTrap scavy("SCAVVV");
+// 	scavy.attack("MAGS");
+// 	scavy.guardGate();
+// }
